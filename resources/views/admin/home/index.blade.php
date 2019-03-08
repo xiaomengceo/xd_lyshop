@@ -192,8 +192,8 @@
 			本后台系统由<a href="http://www.h-ui.net/" target="_blank" title="H-ui前端框架">H-ui前端框架</a>提供前端技术支持</p>
 	</div>
 </footer>
-<script type="text/javascript" src="lib/jquery/1.9.1/jquery.min.js"></script> 
-<script type="text/javascript" src="static/h-ui/js/H-ui.min.js"></script> 
+<script type="text/javascript" src="/admin/lib/jquery/1.9.1/jquery.min.js"></script> 
+<script type="text/javascript" src="/admin/static/h-ui/js/H-ui.min.js"></script> 
 <!--此乃百度统计代码，请自行删除-->
  
 <!--/此乃百度统计代码，请自行删除-->

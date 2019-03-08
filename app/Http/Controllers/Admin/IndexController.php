@@ -4,7 +4,11 @@ namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\Model\AuthRule;
+use DB;
+/**
+ * 框架首页控制器
+ */
 class IndexController extends Controller
 {
     /**
@@ -13,7 +17,12 @@ class IndexController extends Controller
      */
     public function index()
     {
-         return view('admin.index.index');
+        $data=AuthRule::select('*',DB::raw("concat(path,',',id) as paths"))->orderBy('sort','asc')->orderBy('paths','asc')->get();
+        
+         
+        
+         
+        return view('admin.index.index',['data'=>$data]);
         
     }
 

@@ -38,7 +38,8 @@ class LoginController extends Controller
         $salt="！@#%&&adadsiikkkl";
         $password =md5($data['password'].$salt);
         //查询用户数据，返回查询结果
-        $res=Admin::find($data['username']); 
+        //$res=Admin::find($data['username']); 
+        $res=Admin::where('username',$data['username'])->first();
         //$res=Admin::where('username',$data['username'])->where('password',$password)->get();
         if($res){ 
             if($res->password==$password){
@@ -58,7 +59,7 @@ class LoginController extends Controller
          
     }
     /**
-     * 退出登录
+     * 退出登录的
      */
     public function login_out(){
         session(['username'=>null]);

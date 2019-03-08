@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+/**
+ * 框架欢迎页控制器
+ */
 class HomeController extends Controller
 {
     /**
