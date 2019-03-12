@@ -127,7 +127,7 @@ class BrandController extends Controller
        
     }
 
-    public function up(Request $request, $id){
+    public function upload(Request $request, $id){
         $data=$request->except('_token');
         //$res=ProductBrand::where('id',$id)->update($data);
         $obj=ProductBrand::find($id);

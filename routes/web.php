@@ -76,3 +76,119 @@ Route::get('admin/product/get_pcate/{id}','Admin\ProductController@get_pcate');
 //app接口测试
 Route::resource('home/app','Home\AppController');
 Route::get('home/app/check/{t}/{r}/{s}','Home\AppController@check');
+
+
+
+
+
+
+
+
+							/*司科伟的路由组*/
+
+/*加载订单物流详细信息的路由*/
+/*加载批量删除的路由*/
+Route::post('/admin/order_logis/delall' , 'Admin\OrderLogisController@delall');
+Route::resource('/admin/order_logis' , 'Admin\OrderLogisController');
+
+
+/*加载物流公司信息管理模块的路由*/
+//加载批量删除数据的路由
+Route::post('/admin/expr_manages/delall' , 'Admin\ExprManagesController@delall');
+//加载上传图片的路由
+Route::post('/admin/expr_manages/upload' , 'Admin\ExprManagesController@upload');
+Route::resource('/admin/expr_manages' , 'Admin\ExprManagesController');
+
+
+
+/*加载友情链接管理的路由*/
+
+//加载文件上传的方法/admin/friend_links/upload1
+Route::post('/admin/friend_links/display' , 'Admin\FriendLinksController@display');
+/*加载批量删除的路由*/
+Route::post('/admin/friend_links/delall' , 'Admin\FriendLinksController@delall');
+Route::post('/admin/friend_links/upload1' , 'Admin\FriendLinksController@upload1');
+Route::resource('/admin/friend_links' , 'Admin\FriendLinksController');
+
+
+/*加载文章分类管理的路由*/
+
+Route::resource('/admin/article_types' , 'Admin\ArticleTypesController');
+
+
+/*加载文章详情的路由*/
+/*加载批量删除的路由*/
+Route::post('/admin/article_infos/delall' , 'Admin\ArticleInfosController@delall');
+Route::resource('/admin/article_infos' , 'Admin\ArticleInfosController');
+
+
+
+/*加载文章评论的路由*/
+/*加载批量删除的路由*/
+Route::post('/admin/article_rat/delall' , 'Admin\ArticleRatController@delall');
+Route::resource('/admin/article_rat' , 'Admin\ArticleRatController');
+
+
+
+/*加载轮播图的路由*/
+
+//加载批量删除数据的路由
+Route::post('/admin/view_pagers/delall' , 'Admin\ViewPagersController@delall');
+Route::post('/admin/view_pagers/upload','Admin\ViewPagersController@upload');
+Route::resource('/admin/view_pagers' , 'Admin\ViewPagersController');
+
+/*加载轮播图分类信息的路由*/
+
+/*加载批量删除的路由*/
+Route::post('/admin/viewp_cates/delall' , 'Admin\ViewpCatesController@delall');
+Route::resource('/admin/viewp_cates' , 'Admin\ViewpCatesController');
+
+
+//加载订单管理模块的路由
+Route::resource('/admin/order_list' , 'Admin\OrderListController');
+
+
+
+									//前台路由
+
+										
+//加载登录页面的路由
+Route::get('/home/home/login' , 'Home\LoginController@login');
+//加载检测登录方法的路由
+Route::post('/home/login/check_login' , 'Home\LoginController@check_login');
+//加载退出登录方法的路由
+Route::get('/home/login/login_out' , 'Home\LoginController@login_out');
+
+//
+
+/*加载物流公司信息管理模块的路由*/
+
+Route::resource('/home/address' , 'Home\AddressController');
+
+
+/*加载个人信息管理模块的路由*/
+
+/*加载上传图片的方法*/
+Route::post('/home/informat/upload' , 'Home\InformatController@upload');
+Route::resource('/home/informat' , 'Home\InformatController');
+
+/*加载个人中心的安全设置模块的路由*/
+Route::resource('/home/safety' , 'Home\SafetyController');
+
+
+/*加载前台订单列表模块的路由*/
+Route::resource('/home/my_orders' , 'Home\MyOrdersController');
+
+
+
+//加载前台主页的路由
+Route::resource('/home/index' , 'Home\IndexController');
+
+
+
+
+
+
+
+//测试接口的路由
+Route::get('/admin/jiekou' , 'Admin\diaoyongController@index');

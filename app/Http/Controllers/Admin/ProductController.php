@@ -381,30 +381,34 @@ class ProductController extends Controller
 
     //多图片上传，储存商品组图
     public function uploads(Request $request){
-        
-        foreach($request->file('imgs') as $img){
-            $file_name=$img->store('products');
-            $res=true;
+        $imagpaths=[];
+        if($request->hasFile('imgs')){
+            foreach($request->file('imgs') as $img){
+                //执行文件上传
+                $file_name=$img->store('products');
+                $imagpaths[]=$file_name;
+                $res=true;
+            } 
+            //$imagpaths=json_encode($imagpaths);
+        }else{
+            $res=false;
         }
-        
-        //执行文件上传
-       
-    $res=1;
         if($res){
-            return  $data = [
+                $data = [
                 'status' => 1,
-                'msg' => '图片上传成功',
-                'd'=>$request->file('imgs')
-                //'img_name'=>'/uploads/'.$file_name
-                
+                'msg' => '多图片上传成功',
+                'imagpaths'=>$imagpaths
             ];
         }else{
-            return  $data = [
+                $data = [
                 'status' => 0,
-                'msg' => '图片上传失败',
+                'msg' => '多图片上传失败',
                 
             ];
         } 
+        //$data=json_encode($data,JSON_UNESCAPED_UNICODE);
+        //不传json数据的话是以一个对象传递到前台js的
+        return $data;
     }
 
      /**

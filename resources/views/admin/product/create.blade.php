@@ -245,7 +245,7 @@ $(function(){
 				processData: false,
                 contentType : false,
 				success: function(data){
-					 //console.log(data);
+					 console.log(data);
 					 layer.msg('图片上传成功!',{icon:1,time:1000});
 					 $("#uploadfile-2").val(data.img_name);
 					 $("#image").attr("src",data.img_name); 
