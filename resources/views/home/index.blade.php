@@ -389,26 +389,25 @@
 
 							<div class="triangle-topright"></div>						
 						</div>
-						@foreach($arr as $val) 
+					
 							<div class="am-u-sm-7 am-u-md-4 text-two sug">
 								<div class="outer-con ">
 									<div class="title ">
-										{{ $val->title }}
+										
 									</div>									
 									<div class="sub-title ">
-										¥{{ $val->created_at }}
+									
 									</div>
 									<i class="am-icon-shopping-basket am-icon-md  seprate"></i>
 								</div>
-								<a href="# "><img src="{{ $val->type_id }}" /></a>
+								<a href="# "><img src="" /></a>
 							</div>
 
 					<!-- @endforeach -->
 					</div>
                  <div class="clear "></div>  
                  </div>			
-				@endforeach
-
+		
 
 
 						

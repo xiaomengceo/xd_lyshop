@@ -16,8 +16,25 @@ class MyOrdersController extends Controller
     {
         $uid = 6;
     /*    查找出该用户的所有订单信息*/
-        $data = MyOrders::where('uid',$uid)->first();
-        
+        $data = MyOrders::where('uid',$uid)->get();
+        $ids = MyOrders::select('id')->where('uid',$uid)->get();
+        //dd($ids);
+       //$title = MyOrders::find(1);
+       //dd($title);
+        $title=[];
+        foreach($ids as $val){
+            //$val->id;
+          
+           //$title = MyOrders::find($val)->getGoods;
+           $res=MyOrders::find($val);
+           if($res!=null){
+              $title= MyOrders::find($val->id)->getGoods;
+             //dump($title);
+           }
+            
+        }
+       /* $shangpin = MyOrders::find(6)->getGoods()->get();*/
+     
         return view('home.myorders.order',['data'=>$data]);
     }
 

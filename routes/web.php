@@ -166,6 +166,7 @@ Route::get('/home/login/login_out' , 'Home\LoginController@login_out');
 Route::resource('/home/address' , 'Home\AddressController');
 
 
+ 
 /*加载个人信息管理模块的路由*/
 
 /*加载上传图片的方法*/
@@ -173,7 +174,20 @@ Route::post('/home/informat/upload' , 'Home\InformatController@upload');
 Route::resource('/home/informat' , 'Home\InformatController');
 
 /*加载个人中心的安全设置模块的路由*/
+
+/*加载个人中心模块发送邮件的方法*/
+Route::get('/home/safety/send_mail' , 'Home\SafetyController@SendMail');
+/*加载验证邮箱的方法*/
+Route::post('/home/safety/showcode' , 'Home\SafetyController@ShowCode');
+
+/*加载验证手机号的方法*/
+Route::get('/home/safety/showphone' , 'Home\SafetyController@ShowPhone');
+/*执行发送短信的方法*/
+Route::get('/home/safety/dosend' , 'Home\SafetyController@DoSend');
+
+/*加载安全模块的方法*/
 Route::resource('/home/safety' , 'Home\SafetyController');
+
 
 
 /*加载前台订单列表模块的路由*/

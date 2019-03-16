@@ -152,7 +152,7 @@
 									</div>
 									<div class="fore3">
 										<a href="bindphone.html">
-											<div class="am-btn am-btn-secondary">换绑</div>
+											<div class="am-btn am-btn-secondary"><a href="">验证</a></div>
 										</a>
 									</div>
 								</li>
@@ -164,7 +164,7 @@
 									</div>
 									<div class="fore3">
 										<a href="email.html">
-											<div class="am-btn am-btn-secondary">换绑</div>
+											<div class="am-btn am-btn-secondary"><a href="/home/safety/create">换绑</a></div>
 										</a>
 									</div>
 								</li>

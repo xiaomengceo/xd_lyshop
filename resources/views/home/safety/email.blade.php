@@ -7,14 +7,14 @@
 
 		<title>验证邮箱</title>
 
-		<link href="AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css">
-		<link href="AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css">
+		<link href="/home/AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css">
+		<link href="/home/AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css">
 
-		<link href="css/personal.css" rel="stylesheet" type="text/css">
-		<link href="css/stepstyle.css" rel="stylesheet" type="text/css">
+		<link href="/home/css/personal.css" rel="stylesheet" type="text/css">
+		<link href="/home/css/stepstyle.css" rel="stylesheet" type="text/css">
 
-		<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
-		<script src="AmazeUI-2.4.2/assets/js/amazeui.js"></script>
+		<script type="text/javascript" src="/home/js/jquery-1.7.2.min.js"></script>
+		<script src="/home/AmazeUI-2.4.2/assets/js/amazeui.js"></script>
 
 	</head>
 
@@ -52,7 +52,7 @@
 
 						<div class="nav white">
 							<div class="logoBig">
-								<li><img src="images/logobig.png" /></li>
+								<li><img src="/home/images/logobig.png" /></li>
 							</div>
 
 							<div class="search-bar pr">
@@ -113,24 +113,26 @@
 							<div class="u-progress-bar-inner"></div>
 						</div>
 					</div>
-					<form class="am-form am-form-horizontal">
+					<form class="am-form am-form-horizontal" id="form" action="/home/safety/showcode" method="post">
 						<div class="am-form-group">
+							{{ csrf_field() }}
+						
 							<label for="user-email" class="am-form-label">验证邮箱</label>
 							<div class="am-form-content">
-								<input type="email" id="user-email" placeholder="请输入邮箱地址">
+								<input type="email" id="user-email" name="email" placeholder="请输入邮箱地址">
 							</div>
 						</div>
 						<div class="am-form-group code">
 							<label for="user-code" class="am-form-label">验证码</label>
 							<div class="am-form-content">
-								<input type="tel" id="user-code" placeholder="验证码">
+								<input type="tel" id="user-code" name="code" placeholder="验证码">
 							</div>
 							<a class="btn" href="javascript:void(0);" onClick="sendMobileCode();" id="sendMobileCode">
 								<div class="am-btn am-btn-danger">验证码</div>
 							</a>
 						</div>
 						<div class="info-btn">
-							<div class="am-btn am-btn-danger">保存修改</div>
+							<input class="am-btn am-btn-danger" type="submit" value="保存修改">
 						</div>
 
 					</form>
@@ -208,3 +210,33 @@
 	</body>
 
 </html>
+<script type="text/javascript">
+	function sendMobileCode(){
+		//alert(111);
+	 $.ajax({
+	 	dataType:'json',
+        url: "/home/safety/send_mail",
+        type: 'get',
+       
+        
+        processData: false,
+        contentType: false,
+        dataType:"json",
+      
+        success:function(data) {
+        	alert(22222);
+            if (data.msg == 'success') {
+            	alert(data.code);
+             
+            }
+      
+        },
+        error:function(data){
+        	alert(444444);
+        	alert(data.code);
+        }
+    });
+	}
+
+
+</script>

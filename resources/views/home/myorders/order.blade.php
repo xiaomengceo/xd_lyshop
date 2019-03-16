@@ -7,14 +7,14 @@
 
 		<title>订单管理</title>
 
-		<link href="AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css">
-		<link href="AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css">
+		<link href="/home/AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css">
+		<link href="/home/AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css">
 
-		<link href="css/personal.css" rel="stylesheet" type="text/css">
-		<link href="css/orstyle.css" rel="stylesheet" type="text/css">
+		<link href="/home/css/personal.css" rel="stylesheet" type="text/css">
+		<link href="/home/css/orstyle.css" rel="stylesheet" type="text/css">
 
-		<script src="AmazeUI-2.4.2/assets/js/jquery.min.js"></script>
-		<script src="AmazeUI-2.4.2/assets/js/amazeui.js"></script>
+		<script src="/home/AmazeUI-2.4.2/assets/js/jquery.min.js"></script>
+		<script src="/home/AmazeUI-2.4.2/assets/js/amazeui.js"></script>
 
 	</head>
 
@@ -52,7 +52,7 @@
 
 						<div class="nav white">
 							<div class="logoBig">
-								<li><img src="images/logobig.png" /></li>
+								<li><img src="/home/images/logobig.png" /></li>
 							</div>
 
 							<div class="search-bar pr">
@@ -136,12 +136,12 @@
 
 									<div class="order-main">
 										<div class="order-list">
-									
+										@foreach($data as $value)
 											<!--交易成功-->
 											<div class="order-status5">
 												<div class="order-title">
-													<div class="dd-num">订单编号：<a href="javascript:;">{{ $data->order_code  }}</a></div>
-													<span>成交时间：{{ $data->created_at }}</span>
+													<div class="dd-num">订单编号：<a href="javascript:;">{{ $value->order_code  }}</a></div>
+													<span>成交时间：{{ $value->created_at }}</span>
 													<!--    <em>店铺：小桔灯</em>-->
 												</div>
 												<div class="order-content">
@@ -151,7 +151,7 @@
 															<li class="td td-item">
 																<div class="item-pic">
 																	<a href="#" class="J_MakePoint">
-																		<img src="images/kouhong.jpg_80x80.jpg" class="itempic J_ItemImg">
+																		<img src="/home/images/kouhong.jpg_80x80.jpg" class="itempic J_ItemImg">
 																	</a>
 																</div>
 																<div class="item-info">
@@ -166,12 +166,12 @@
 															</li>
 															<li class="td td-price">
 																<div class="item-price">
-																	333.00
+																	{{ $value->price }}
 																</div>
 															</li>
 															<li class="td td-number">
 																<div class="item-number">
-																	<span>×</span>2
+																	<span>×</span>{{ $value->nums }}
 																</div>
 															</li>
 															<li class="td td-operation">
@@ -185,14 +185,14 @@
 													<div class="order-right">
 														<li class="td td-amount">
 															<div class="item-amount">
-																合计：676.00
+																合计：{{ $value->total_price }}
 																<p>含运费：<span>10.00</span></p>
 															</div>
 														</li>
 														<div class="move-right">
 															<li class="td td-status">
 																<div class="item-status">
-																	<p class="Mystatus">交易成功</p>
+																	<p class="Mystatus">{{ $value->order_status }}</p>
 																	<p class="order-info"><a href="orderinfo.html">订单详情</a></p>
 																	<p class="order-info"><a href="logistics.html">查看物流</a></p>
 																</div>
@@ -205,7 +205,7 @@
 													</div>
 												</div>
 											</div>
-							
+										@endforeach
 											
 											
 											<!--交易失败-->

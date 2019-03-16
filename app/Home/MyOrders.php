@@ -15,11 +15,11 @@ class MyOrders extends Model
 
   /**
    *  加载查询商品信息的方法
-   *  配对一对多关系模型,关联商品表
+   *  配对一对多属于关系模型,关联商品表
    */
 
    public function getGoods(){
-   		return	$this->hasMany('App\Model\Product','id','gid');
+   		return	$this->belongsTo('App\Model\Product','gid');
 
    }
 }

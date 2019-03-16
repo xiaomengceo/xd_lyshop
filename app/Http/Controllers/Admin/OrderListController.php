@@ -62,14 +62,14 @@ class OrderListController extends Controller
            $info = $request->except('_token');
         $order = new OrderList;
         $order->uid = $info['uid'];
-        $order->gid = $info['gid'];
+      
         $order->aid = $info['aid'];
         $order->buyer_mess = $info['buyer_mess'];
         $order->order_status = $info['order_status'];
         $order->order_code = $info['order_code'];
-         $order->price = $info['price'];
-        $order->total_price = $info['total_price'];
-        $order->nums = $info['nums'];
+   
+        
+        
          $res = $order->save();
       
         if($res){
@@ -123,12 +123,11 @@ class OrderListController extends Controller
         $info = $request->except('_token','_method');
         $xinxi = OrderList::find($id);
         $xinxi->uid = $info['uid'];
-        $xinxi->gid = $info['gid'];
+     
         $xinxi->aid = $info['aid'];
-        $xinxi->order_code = $info['order_code'];
-        $xinxi->price = $info['price'] ; 
-        $xinxi->total_price = $info['total_price'];
-        $xinxi->nums = $info['nums']; 
+        $xinxi->order_code = $info['order_code']; 
+        
+      
         $xinxi->order_status = $info['order_status'];
         $xinxi->buyer_mess = $info['buyer_mess']; 
         $res = $xinxi->save();     

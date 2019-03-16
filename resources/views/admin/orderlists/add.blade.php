@@ -45,35 +45,20 @@
 		</div>
 	</div>
 
-	<div class="row cl">
-		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>商品名称：</label>
-		<div class="formControls col-xs-8 col-sm-9">
-			<input type="text" class="input-text" value="" placeholder="" id="gid" name="gid">
-		</div>
-	</div>
 
-	<div class="row cl">
-		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>商品价格：</label>
-		<div class="formControls col-xs-8 col-sm-9">
-			<input type="text" class="input-text" value="" placeholder="" id="price" name="price">
-		</div>
-	</div>
+
+	
 
 	<div class="row cl">
 		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>订单编号：</label>
 		<div class="formControls col-xs-8 col-sm-9">
-			<input type="text" class="input-text" autocomplete="off"  placeholder="请填写网址" id="brand_url" name="order_code">
+			<input type="text" class="input-text" autocomplete="off"  placeholder="请填写网址" id="order_code" name="order_code">
 		</div>
 	</div>
 
-	<div class="row cl">
-		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>订单总价：</label>
-		<div class="formControls col-xs-8 col-sm-9">
-			<input type="text" class="input-text" id="total_price" name="total_price" value="">
-		</div>
-	</div>
+	
 
-	<div class="row cl">
+	<!-- <div class="row cl">
 		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>购买数量：</label>
 		<div class="formControls col-xs-8 col-sm-9 skin-minimal">
 			<select name="nums" style="width:100px;height:31px;float:left">
@@ -87,7 +72,7 @@
 					<option value="8">8</option>
 				</select>
 		</div>
-	</div>
+	</div> -->
 
 
 	<div class="row cl">

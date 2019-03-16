@@ -130,13 +130,12 @@
 					<th width="25"><input type="checkbox" name=""  value=""></th>
 					<th width="30">ID</th>
 					<th>用户名称</th>
-					<th width="80">商品名称</th>
-					<th width="80">商品单价</th>
-					<th width="120">购买数量</th>
-					<th width="80">购买数量</th>
-					<th width="120">订单总价</th>
+					<th>买家留言</th>
+			
+					
+
 					<th width="75">收货地址</th>
-				
+					<th width="60">商品操作</th>
 					<th width="120">订单编号</th>
 					<th width="60">订单状态</th>
 					<th width="80">操作</th>
@@ -148,10 +147,9 @@
 					<td><input type="checkbox"  value="{{ $val->id }}" name=""></td>
 					<td>{{ $val->id }}</td>
 					<td>{{ $val->uid }}</td>
-					<td>{{ $val->gid }}</td>
-					<td>{{ $val->price }}</td>
-					<td>{{ $val->nums}}</td>
-					<td>{{ $val->total_price }}</td>
+					<td>{{ $val->buyer_mess }}</td>
+					
+					
 					<td>{{ $val->aid }}</td>
 					<td>{{ $val->order_status}}</td>
 					<td>{{ $val->order_code }}</td>

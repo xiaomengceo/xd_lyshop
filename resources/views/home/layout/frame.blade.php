@@ -1,25 +1,38 @@
 <!DOCTYPE html>
 <html>
 
-	<head>
-		<meta charset="utf-8">
+<head>
+		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0">
- 		<meta name="csrf-token" content="{{ csrf_token() }}">
-		<title>修改密码</title>
+
+		<title>安全设置</title>
 
 		<link href="/home/AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css">
 		<link href="/home/AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css">
 
 		<link href="/home/css/personal.css" rel="stylesheet" type="text/css">
+		<link href="/home/css/infstyle.css" rel="stylesheet" type="text/css">
+
+					
+			<!-- 	验证手机模块 -->
+		<link href="/home/css/personal.css" rel="stylesheet" type="text/css">
 		<link href="/home/css/stepstyle.css" rel="stylesheet" type="text/css">
 
 		<script type="text/javascript" src="/home/js/jquery-1.7.2.min.js"></script>
 		<script src="/home/AmazeUI-2.4.2/assets/js/amazeui.js"></script>
+		<!-- 订单列表模块的css样式 -->
+			
 
+			
+
+			<link href="/home/css/personal.css" rel="stylesheet" type="text/css">
+			<link href="/home/css/orstyle.css" rel="stylesheet" type="text/css">
+
+			<script src="/home/AmazeUI-2.4.2/assets/js/jquery.min.js"></script>
+		
 	</head>
 
 	<body>
-
 		<!--头 -->
 		<header>
 			<article>
@@ -70,90 +83,18 @@
 				</div>
 			</article>
 		</header>
-            <div class="nav-table">
-					   <div class="long-title"><span class="all-goods">全部分类</span></div>
-					   <div class="nav-cont">
-							<ul>
-								<li class="index"><a href="#">首页</a></li>
-                                <li class="qc"><a href="#">闪购</a></li>
-                                <li class="qc"><a href="#">限时抢</a></li>
-                                <li class="qc"><a href="#">团购</a></li>
-                                <li class="qc last"><a href="#">大包装</a></li>
-							</ul>
-						    <div class="nav-extra">
-						    	<i class="am-icon-user-secret am-icon-md nav-user"></i><b></b>我的福利
-						    	<i class="am-icon-angle-right" style="padding-left: 10px;"></i>
-						    </div>
-						</div>
-			</div>
-			<b class="line"></b>
+
+
 		<div class="center">
 			<div class="col-main">
-				<div class="main-wrap">
+				
+					@section('content')
 
-					<div class="am-cf am-padding">
-						<div class="am-fl am-cf"><strong class="am-text-danger am-text-lg">修改密码</strong> / <small>Password</small></div>
-					</div>
 
-					<!-- 显示错误消息 -->
+					@show
 
-				<center><font color=red>	@if (count($errors) > 0)
-					    <div class="alert alert-danger">
-					        <ul>
-					            @foreach ($errors->all() as $error)
-					                <li>{{ $error }}</li>
-					            @endforeach
-					        </ul>
-					    </div>
-								@endif
-					</font></center>		<hr/>
-					<!--进度条-->
-					<div class="m-progress">
-						<div class="m-progress-list">
-							<span class="step-1 step">
-                                <em class="u-progress-stage-bg"></em>
-                                <i class="u-stage-icon-inner">1<em class="bg"></em></i>
-                                <p class="stage-name">重置密码</p>
-                            </span>
-							<span class="step-2 step">
-                                <em class="u-progress-stage-bg"></em>
-                                <i class="u-stage-icon-inner">2<em class="bg"></em></i>
-                                <p class="stage-name">完成</p>
-                            </span>
-							<span class="u-progress-placeholder"></span>
-						</div>
-						<div class="u-progress-bar total-steps-2">
-							<div class="u-progress-bar-inner"></div>
-						</div>
-					</div>
-					<form class="am-form am-form-horizontal" id="horizontal"  action="/home/safety/{{ $id }}" method="post">
-						{{ csrf_field() }}
-							{{ method_field('PUT') }}
-						<div class="am-form-group">
-							<label for="user-old-password" class="am-form-label">原密码</label>
-							<div class="am-form-content">
-								<input type="password" id="user-old-password" name="user_old-password" placeholder="请输入原登录密码">
-							</div>
-						</div>
-						<div class="am-form-group">
-							<label for="user-new-password" class="am-form-label">新密码</label>
-							<div class="am-form-content">
-								<input type="password" id="user-new-password" name="user_new-password"  placeholder="由数字、字母组合">
-							</div>
-						</div>
-						<div class="am-form-group">
-							<label for="user-confirm-password" class="am-form-label">确认密码</label>
-							<div class="am-form-content">
-								<input type="password" name="repass" id="user-confirm-password" placeholder="请再次输入上面的密码">
-							</div>
-						</div>
-						<div class="info-btn">
-							<input type="submit" value="保存修改" class="am-btn am-btn-danger">
-						</div>
 
-					</form>
-
-				</div>
+			
 				<!--底部-->
 				<div class="footer">
 					<div class="footer-hd">
@@ -179,6 +120,8 @@
 				</div>
 			</div>
 
+
+
 			<aside class="menu">
 				<ul>
 					<li class="person">
@@ -189,7 +132,7 @@
 						<ul>
 							<li> <a href="information.html">个人信息</a></li>
 							<li> <a href="safety.html">安全设置</a></li>
-							<li> <a href="address.html">收货地址</a></li>
+							<li> <a href="/home/informat">收货地址</a></li>
 						</ul>
 					</li>
 					<li class="person">
@@ -222,7 +165,80 @@
 
 			</aside>
 		</div>
-
+		
 	</body>
 
 </html>
+
+<script type="text/javascript">
+	function sendMobileCode(){
+		//alert(111);
+	 $.ajax({
+	 	dataType:'json',
+        url: "/home/safety/send_mail",
+        type: 'get',
+       
+        
+        processData: false,
+        contentType: false,
+        dataType:"json",
+      
+        success:function(data) {
+        	alert(22222);
+            if (data.msg == 'success') {
+            	alert(data.code);
+             
+            }
+      
+        },
+        error:function(data){
+        	alert(444444);
+        	alert(data.code);
+        }
+    });
+	}
+
+	function sendPhone(obj){
+		/*接收表单传过来的手机号*/
+		var phone = $('#telephone').val();
+		/*使用正则区检测是否是正确的手机号*/
+		var phone_preg =/^1{1}[3456789]{1}[0-9]{9}$/;
+		if(!phone_preg.test(phone)){
+			return false;
+		};
+		/*获取按钮上的文字*/
+		var  object = $(obj);
+		 var text = object.val();
+		  var t = 10;
+		  /* 将按钮禁用*/
+		object.attr('disabled',true);
+		if(text == "点击获取验证码"){
+			//alert(11111);
+			/*发送ajax请求*/
+			 $.get('/home/safety/dosend',{'telephone':phone},function(msg){
+			 	//time = null;
+			 	/*设置定时器*/
+			 	var time =setInterval(function(){
+			 	 t--; 
+			 //修改按钮的内容
+			 	object.val('重新发送验证码('+t+'s)');
+			  if(t<1){
+				clearInterval(time);
+				object.attr('disabled',false);
+				object.val('点击获取验证码');
+				time = null;
+				}	
+			}, 1000);
+			 			
+			
+			 	
+   		 });
+
+	}else{
+		return false;
+	}
+}
+		
+
+
+</script>

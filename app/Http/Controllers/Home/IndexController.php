@@ -31,35 +31,13 @@ class IndexController extends Controller
       /*商品分类表里的所有字段的数据*/
         $types = ProductCates::all();
       // dd($types);
-         $arr = [];
-        foreach($types as $val){
-         if($val->pid==0){
-            //证明该分类在分类表里是底层分类, 
-            foreach($types as $vall){
-                 $res = ProductCates::where('pid', $vall->id)->get();
-                  if($res->isempty()){
-                        //$arr[] = $val;
-                  }else{
-                         foreach($res as $valll){
-                             foreach($types as $vallll){
-                                 $ress = ProductCates::where('pid', $valll->id)->get();
-                                 if( $ress->isempty()){
-                                    $arr[] = $valll;
-
-                                 }
-                             }
-                               dd($arr);
-                         }
-                  }   
-            }
-            
-             
-         }
+      
+    
           
                 
               
            
-          }
+          
          
              
           
@@ -68,7 +46,7 @@ class IndexController extends Controller
      //查看顶级分类
      $first = ProductCates::select('title','id')->where('pid', 0)->get();
  
-        return  view('home.index',['cate_data'=>$cate_data , 'imgs'=>$imgs ,'first'=>$first ,'res'=>$res,'arr'=>$arr]);
+        return  view('home.index',['cate_data'=>$cate_data , 'imgs'=>$imgs ,'first'=>$first ]);
     }
 
     /****-
