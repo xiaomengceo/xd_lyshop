@@ -41,7 +41,7 @@
 						<th width="40"><input name="" type="checkbox" value=""></th>
 						<th width="40">ID</th>
 						<th width="60">缩略图</th>
-						<th width="100">产品名称</th>
+						<th width="180">产品名称</th>
 						<th>描述</th>
 						<th width="100">售价 (原价)</th>
 						<th width="100">库存 (剩余,已售)</th>
@@ -54,17 +54,22 @@
 					<tr class="text-c va-m">
 						<td><input name="" type="checkbox" value="{{$v->id}}"></td>
 						<td>{{$v->id}}</td>
-						<td><a onClick="product_show('哥本哈根橡木地板','product-show.html','10001')" href="javascript:;"><img width="60" class="product-thumb" src="{{$v->gpic}}"></a></td>
-						<td class="text-l"><a style="text-decoration:none" onClick="product_show('哥本哈根橡木地板','product-show.html','10001')" href="javascript:;">{{$v->title}}</a></td>
-						<td class="text-l">{{$v->abstract}} </td>
+						<td>
+						<a onClick="product_show('哥本哈根橡木地板','product-show.html','10001')" href="javascript:;"><img width="60" class="product-thumb" src="{{$v->gpic}}"></a></td>
+						<td class="text-1">
+						   @foreach($v->spec as $kk=>$vv)
+						   <a style="text-decoration:none" onClick="product_show('哥本哈根橡木地板','product-show.html','10001')" href="javascript:;">{{$v->title}}</a> {{$vv}}<br>
+						   @endforeach
+						</td>
+						<td class="text-l"> {{$v->abstract}} </td>
 						<td>
 						  @foreach($v->price as $kk=>$vv)
-						  <span class="price">售  {{$v->market_price[$kk]}} ( 市  {{$vv}} )</span>
+						  <span class="price">售  {{$v->market_price[$kk]}} ( 市  {{$vv}} )</span><br>
 						  @endforeach
 						</td>
 						<td class="text-l">
 						  @foreach($v->stock as $kk=>$vv)
-						   存 {{$vv}} ( 剩 {{$vv-$v->sales[$kk]}}, 售 {{$v->sales[$kk]}} ) 
+						   存 {{$vv}} ( 剩 {{$vv-$v->sales[$kk]}}, 售 {{$v->sales[$kk]}} ) <br>
 						  @endforeach
 						 </td>
 						<td class="td-status">
@@ -75,7 +80,7 @@
 						  
 						  @endif
 						</td>
-						<td class="td-manage"> @if($v->status==1)<a style="text-decoration:none" onClick="product_stop(this,'{{$v->id}}')" href="javascript:;" title="下架"><i class="Hui-iconfont">&#xe6de;</i></a>@else <a style="text-decoration:none" onClick="product_start(this,'{{$v->id}}')" href="javascript:;" title="发布"><i class="Hui-iconfont">&#xe603;</i></a> @endif <a href="javascript:;" title="商品入库" onClick="in_store('商品入库','/admin/product/in_store/{{$v->id}}')" href="">入库</a> <a style="text-decoration:none" class="ml-5" onClick="product_edit('产品编辑','product-add.html','10001')" href="javascript:;" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a> <a style="text-decoration:none" class="ml-5" onClick="product_del(this,'{{$v->id}}')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+						<td class="td-manage"> @if($v->status==1)<a style="text-decoration:none" onClick="product_stop(this,'{{$v->id}}')" href="javascript:;" title="下架"><i class="Hui-iconfont">&#xe6de;</i></a>@else <a style="text-decoration:none" onClick="product_start(this,'{{$v->id}}')" href="javascript:;" title="发布"><i class="Hui-iconfont">&#xe603;</i></a> @endif <a href="javascript:;" title="商品入库" onClick="in_store('商品入库','/admin/product/in_store/{{$v->id}}')" href="">入库</a> <a style="text-decoration:none" class="ml-5" onClick="product_edit('产品编辑','/admin/product/{{$v->id}}/edit','10001')" href="javascript:;" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a> <a style="text-decoration:none" class="ml-5" onClick="product_del(this,'{{$v->id}}')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
 					</tr>
 				   @endforeach
 				</tbody>

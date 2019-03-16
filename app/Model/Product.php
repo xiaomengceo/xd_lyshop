@@ -15,4 +15,15 @@ class Product extends Model
     {
         return $this->hasMany('App\Model\ProductSku','product_id');
     }
+    //一对多，关联商品图片组表
+    public function product_img()
+    {
+        return $this->hasMany('App\Model\ProductImg','product_id');
+    }
+    //一对一 关联商品规格表
+    public function property_name()
+    {
+       return $this->belongsTo('App\Model\PropertyName','spec_id');
+    }
+    
 }

@@ -182,7 +182,7 @@ class AdminsController extends Controller
      * 批量删除
      */
     public function delall(Request $request)
-    {
+    {    
         for ($i=0; $i<count($request['keys']); $i++) {
               // 遍历删除
               $res =Admin::find($request['keys'][$i])->delete();   

@@ -56,8 +56,8 @@
 		<tbody>
 		    @foreach($data as $k=>$v)
 			<tr class="text-c">
-				<td><input type="checkbox" value="1" name=""></td>
-				<td>1</td>
+				<td><input type="checkbox" value="{{$v->id}}" name=""></td>
+				<td>{{$v->id}}</td>
 				<td>{{$v->username}}</td>
 				<td>{{$v->phone}}</td>
 				<td>{{$v->email}}</td>

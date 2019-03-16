@@ -10,4 +10,5 @@ class PropertyName extends Model
 {
     //修改默认表名
     public $table='property_name';
+    
 }

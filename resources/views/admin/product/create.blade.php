@@ -155,15 +155,18 @@
         <div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">商品图片组：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-					<span class="btn-upload form-group">
-					<input class="input-text upload-url" type="text" name="pic[]" id="uploadfiles-2" readonly style="width:200px">
-					<a href="javascript:void();" class="btn btn-primary upload-btn"><i class="Hui-iconfont">&#xe642;</i> 按住ctrl选择多张图片</a>
-					<input  type="file" id="uploads" multiple name="pic-2[]" class="input-file">
-					</span>
-					<img id="image" src="" class="img-responsive" alt="响应式图片">
+						<span class="btn-upload form-group">
+						<input class="input-text upload-url" type="text" name="pic[]" id="uploadfiles-2" readonly style="width:200px">
+						<a href="javascript:void();" class="btn btn-primary upload-btn"><i class="Hui-iconfont">&#xe642;</i> 按住ctrl选择多张图片</a>
+						<input  type="file" id="uploads" multiple name="pic-2[]" class="input-file">
+						<input type="hidden" id="imgspath" name="imgspath" value="0" >
+						</span>
+					    <div  col-xs-8 col-sm-9" id="piclist">
+						   <img id="image" src="" class="img-responsive" alt="响应式图片">
+					    </div>
 					</div>
 					<div class="col-3 formControls">
-					 
+					  
 					</div>
 		</div>
 		 
@@ -245,7 +248,7 @@ $(function(){
 				processData: false,
                 contentType : false,
 				success: function(data){
-					 //console.log(data);
+					 console.log(data);
 					 layer.msg('图片上传成功!',{icon:1,time:1000});
 					 $("#uploadfile-2").val(data.img_name);
 					 $("#image").attr("src",data.img_name); 
@@ -260,7 +263,11 @@ $(function(){
     //多图片上传 
 	$('#uploads').change(function(){
        var form = new FormData();
-       var length=$("#uploads")[0].files.length;
+	   var length=$("#uploads")[0].files.length;
+	   //图片地址储存的地方
+	   var imgspath=$('#imgspath');
+	   //图片展示的地方
+	   var piclist=$('#piclist');
        for(var i=0; i<length;i++){
          form.append('imgs[]', $("#uploads")[0].files[i]);
        }
@@ -274,6 +281,17 @@ $(function(){
                 contentType : false,
 				success: function(data){
 					 console.log(data);
+					 var paths=data.imagpaths.join(',');
+					 //储存图片路径
+					 imgspath.val(paths);
+					 console.log(imgspath[0]);
+					 var imgs='';
+					 $.each(data.imagpaths,function(index,value){
+                       imgs+=' <img id="image" src="'+value+'" class="img-responsive" alt="响应式图片">';
+					 });
+					 //显示图片
+					 piclist.children().remove();
+					 piclist.prepend(imgs);
 					 layer.msg('多图片上传成功!',{icon:1,time:1000});
 					// $("#uploadfile-2").val(data.img_name);
 					 //$("#image").attr("src",data.img_name); 
@@ -327,6 +345,30 @@ $(function(){
 		}
 	});
   //end表单提交
+
+   //让用户可以自主选择添加那些规格
+   //$('#tbody').find('input[type="checkbox"]').click(function(){
+   //动态添加的元素需要绑定他的祖先才能能触发事件
+   $("#tbody").on("click", 'input[type="checkbox"]',function(){ 
+	  if(this.checked){
+		  //alert(1);
+		  var p=$(this).parent().parent();
+		  $.each(p.find('input'), function(i,v){ 
+                n=$(v).attr("name");
+				var str=n.replace('xm','');
+				$(v).attr("name",str);
+		  });
+		  console.log(p[0]); 
+	  }else{
+		  var p=$(this).parent().parent();
+		  $.each(p.find('input'), function(i,v){ 
+                n=$(v).attr("name");
+				$(v).attr("name","xm"+n);
+		  });
+		  console.log(p[0]);
+	  }
+    });
+
 
 });
 $(function(){
