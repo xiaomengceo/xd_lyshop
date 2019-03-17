@@ -153,7 +153,7 @@ $(function(){
 			    // }, 
 				success: function(data){
 					 console.log(data);
-					 layer.msg('已添加!',{icon:1,time:1000});
+					 layer.msg('已修改!',{icon:1,time:1000});
 					 setTimeout(function(){ 
 					 window.parent.location.reload();
 					 var index = parent.layer.getFrameIndex(window.name);
